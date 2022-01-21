@@ -1,7 +1,7 @@
 # theatre_buddy
 
 A new Flutter project.
-
+app for mlh...!!!!
 ## Getting Started
 
 This project is a starting point for a Flutter application.
