@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:theatre_buddy/screens/app/audition_screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key? key }) : super(key: key);
 
@@ -9,7 +10,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Title")
+      ),
       
     );
   }
