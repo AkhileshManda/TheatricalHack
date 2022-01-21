@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1076225787729",
+    "project_id": "theatre-buddy",
+    "storage_bucket": "theatre-buddy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076225787729:android:46125043ddfa2325c6b570",
+        "android_client_info": {
+          "package_name": "com.example.theatre_buddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1076225787729-nmuu57c68275lohcokc1pb5s6d5aj64v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdipwoWmXf0FIv6tKbSafaA7jixrMr-1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1076225787729-nmuu57c68275lohcokc1pb5s6d5aj64v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
