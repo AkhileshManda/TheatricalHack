@@ -11,7 +11,6 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
-
   final TextEditingController _nameCon = TextEditingController();
   final TextEditingController _passwordCon = TextEditingController();
 
@@ -24,61 +23,94 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text("Theatre Buddy"),
-            TextField(
-              controller: _nameCon,
-              decoration: const InputDecoration(
-                  hintText: "Email"
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 150,
+          ),
+          Container(
+            color: Colors.lightBlue[100],
+            height: 70.0,
+            child: Text(
+              " Theatre Buddy ",
+              style: TextStyle(
+                color: Colors.blue[900],
+                fontSize: 40,
+                fontStyle: FontStyle.italic,
               ),
             ),
-            TextField(
-              obscureText: true,
-              controller: _passwordCon,
-              decoration: const InputDecoration(
-                  hintText: "Password"
-              ),
-            ),
-            ElevatedButton(
-                onPressed: () async {
-                  name = _nameCon.text;
-                  pass = _passwordCon.text;
+          ),
+          const SizedBox(
+            height: 150,
+          ),
+          TextField(
+            controller: _nameCon,
+            decoration: InputDecoration(
+                contentPadding: const EdgeInsets.all(15),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                filled: false,
+                fillColor: Colors.grey,
+                hintText: "Email"),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          TextField(
+            obscureText: true,
+            controller: _passwordCon,
+            decoration: InputDecoration(
+                contentPadding: const EdgeInsets.all(15),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                filled: false,
+                fillColor: Colors.grey,
+                hintText: "Password"),
+          ),
+          const SizedBox(
+            height: 50,
+          ),
+          ElevatedButton(
+              onPressed: () async {
+                name = _nameCon.text;
+                pass = _passwordCon.text;
 
-                  try {
-                    UserCredential userCredential = await _auth
-                        .signInWithEmailAndPassword(
-                      email: name,
-                      password: pass,
-                    );
+                try {
+                  UserCredential userCredential =
+                      await _auth.signInWithEmailAndPassword(
+                    email: name,
+                    password: pass,
+                  );
 
-                    print(userCredential);
+                  print(userCredential);
 
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen())
-                    );
-                  } on FirebaseAuthException catch (e) {
-                    print(e.toString());
-                    error = e.toString();
-                  }
-                },
-                child: Text('Sign In')
-
-            ),
-            TextButton(
-              child: const Text("New User? Click to Register"),
-              onPressed: (){
-                Navigator.push(context,
-                 MaterialPageRoute(builder:(context)=> RegisterScreen())
-                 );
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                } on FirebaseAuthException catch (e) {
+                  print(e.toString());
+                  error = e.toString();
+                }
               },
-              ),
-            if(error!="")
-              Text("Error Signing In", style: TextStyle(color:Colors.red))
-          ],
-        ),
+              child: Text('Sign In')),
+          const SizedBox(
+            height: 50,
+          ),
+          TextButton(
+            child: Text(
+              "New User? Click to Register",
+              style: TextStyle(color: Colors.blue[900]),
+            ),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => RegisterScreen()));
+            },
+          ),
+          if (error != "")
+            Text("Error Signing In", style: TextStyle(color: Colors.red[900]))
+        ],
       ),
     );
   }
