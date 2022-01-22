@@ -139,7 +139,7 @@ class _AuditionScreenState extends State<AuditionScreen> {
                                     firstDate: DateTime.now(),
                                     //DateTime.now() - not to allow to choose before today.
                                     lastDate: DateTime(2101)
-                                );
+                                    );
 
                                 if (pickedDate != null) {
                                   //print(pickedDate);

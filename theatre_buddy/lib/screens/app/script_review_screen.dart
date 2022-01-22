@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 class ScriptReviewScreen extends StatelessWidget {
   final String name;
   final String url;
@@ -22,10 +23,40 @@ class ScriptReviewScreen extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
+            flex:1,
+            child: Container(
+              child: Center(
+                child: ElevatedButton(child: Text("View Script"), onPressed:()async{
+                  if(await canLaunch(url)){
+                    launch(url);
+                  }
+                }),
+              )
+              )
+          ),
+          Expanded(
+            flex:1,
             child: StreamBuilder<QuerySnapshot>(
               stream: _reviewStream,
               builder: (ctx, snapshot){
-          
+
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                        child: CircularProgressIndicator());
+                  }
+
+                  if (snapshot.data!.size == 0) {
+                    return const Padding(
+                      padding: EdgeInsets.all(20.0),
+                      child: Center(
+                        child: Text(
+                          "Add Scripts",
+                        ),
+                      ),
+                    );
+                  }
+
+
                 return ListView(
                   
                   shrinkWrap: true,
@@ -71,7 +102,6 @@ class ScriptReviewScreen extends StatelessWidget {
                 });
               }
           )
-
         ],
       ))
     ]
