@@ -27,7 +27,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
             child: Text(
               "Theatre Buddy",
               style: TextStyle(
@@ -88,22 +88,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   password: pass,
                 );
 
-                print(userCredential);
+                //print(userCredential);
 
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => HomeScreen()));
               } on FirebaseAuthException catch (e) {
-                print(e.toString());
+                //print(e.toString());
                 error = e.toString();
               }
             },
-            child: Text('Sign Up'),
+            child: const Text('Sign Up'),
           ),
           TextButton(
             child: const Text("Already Have an Account? Sign In Here"),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => AuthScreen()));
+                  MaterialPageRoute(builder: (context) => const AuthScreen()));
             },
           ),
           if (error != "")

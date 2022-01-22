@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:theatre_buddy/widgets/audition_card.dart';
 import 'package:theatre_buddy/widgets/drawer.dart';
 
 class AuditionScreen extends StatefulWidget {
@@ -47,15 +48,17 @@ class _AuditionScreenState extends State<AuditionScreen> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Auditions Calendar"),
+          backgroundColor: Colors.blue[900],
+          title: const Text("Auditions Calendar"),
+          elevation: 0,
+               
         ),
-        drawer: DrawerWidget(),
+        drawer: const DrawerWidget(),
         body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              //TODO: Update UI
-              //TODO: Adding gesture
+              
               StreamBuilder<QuerySnapshot>(
                 builder: (ctx, snapshot) {
                   //Load For Data
@@ -78,55 +81,26 @@ class _AuditionScreenState extends State<AuditionScreen> {
 
                   //else
 
-                  return SingleChildScrollView(
+                  return Expanded(
                     child: ListView(
-                      //TODO :convert ListView to ListView.builder to give scroll feature
                       shrinkWrap: true,
-                      children: [
-                        Column(
-                          children: snapshot.data!.docs
-                              .map((DocumentSnapshot document) {
-                            Map<String, dynamic> data =
-                                document.data()! as Map<String, dynamic>;
-                            //print(data);
-                            int days = DateTime.parse(data["time"])
-                                .difference(DateTime.now())
-                                .inDays;
-
-                            return Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: SizedBox(
-                                height: _htOfCard,
-                                child: Card(
-                                  elevation: 5,
-                                  shape: RoundedRectangleBorder(
-                                    side: const BorderSide(
-                                      color: Colors.white70,
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: ListTile(
-                                    title: Text(
-                                      data['play_name'],
-                                    ),
-                                    subtitle: days < 0
-                                        ? Text(
-                                            "Event passed " +
-                                                days.abs().toString() +
-                                                " days ago",
-                                          )
-                                        : Text(
-                                            days.toString() + " day(s)",
-                                          ),
-                                  ),
-                                ),
-                              ),
-                            );
-                          }).toList(),
-                        ),
-                      ],
-                    ),
+                         children: snapshot.data!.docs
+                             .map((DocumentSnapshot document) {
+                           Map<String, dynamic> data =
+                               document.data()! as Map<String, dynamic>;
+                           //print(data);
+                           int days = DateTime.parse(data["time"])
+                               .difference(DateTime.now())
+                               .inDays;
+                  
+                           return AuditionCard(
+                             name: data["play_name"] ,
+                             role: data["role"],
+                             date: days.toString(),
+                             contact: data["contact"]
+                           );
+                         }).toList(),
+                       ),
                   );
                 },
                 stream: _auditionsStream,

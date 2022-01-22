@@ -15,86 +15,102 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Welcome")),
-      drawer: const DrawerWidget(),
-      body: Container(
-        constraints: const BoxConstraints.expand(),
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('images/background1.png'), fit: BoxFit.cover),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Container(
+            
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('images/background1.png'), fit: BoxFit.cover),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                const SizedBox(
+                    height: 200.0,
+                    child: Image(
+                      image: AssetImage('images/drama.png'),
+                    )
+                ),
+
+                const Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text(
+                    "What we Offer",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30
+                    )
+                  ),
+                ),
+
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => AuditionScreen()));
+                  },
+                  child: ReuseableCard(
+                    cardChild: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Check Auditions',
+                          style: TextStyle(
+                              fontSize: 20.0,
+                              color: Colors.blue[900],
+                              fontWeight: FontWeight.w900),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ScriptsScreen()));
+                  },
+                  child: ReuseableCard(
+                    cardChild: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'View Scripts',
+                          style: TextStyle(
+                              fontSize: 20.0,
+                              color: Colors.blue[900],
+                              fontWeight: FontWeight.w900),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => AuditionScreen()));
+                  },
+                  child: ReuseableCard(
+                    cardChild: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Buy Props',
+                          style: TextStyle(
+                              fontSize: 20.0,
+                              color: Colors.blue[900],
+                              fontWeight: FontWeight.w900),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+                ),
+          ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            const SizedBox(
-                height: 200.0,
-                child: Image(
-                  image: AssetImage('images/drama.png'),
-                )),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AuditionScreen()));
-              },
-              child: ReuseableCard(
-                cardChild: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Check Auditions',
-                      style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.blue[900],
-                          fontWeight: FontWeight.w900),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ScriptsScreen()));
-              },
-              child: ReuseableCard(
-                cardChild: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'View Scripts',
-                      style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.blue[900],
-                          fontWeight: FontWeight.w900),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AuditionScreen()));
-              },
-              child: ReuseableCard(
-                cardChild: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Buy Props',
-                      style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.blue[900],
-                          fontWeight: FontWeight.w900),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
