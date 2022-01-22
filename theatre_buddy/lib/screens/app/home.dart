@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:theatre_buddy/screens/app/audition_screen.dart';
 import 'package:theatre_buddy/widgets/drawer.dart';
-import 'reuseable_card.dart';
+import '../../widgets/reuseable_card.dart';
 import 'script_screen.dart';
 
 class HomeScreen extends StatefulWidget {
