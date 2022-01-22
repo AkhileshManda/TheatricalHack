@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:theatre_buddy/screens/app/audition_screen.dart';
+import 'package:theatre_buddy/screens/app/script_screen.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({ Key? key }) : super(key: key);
@@ -17,7 +18,12 @@ class DrawerWidget extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> AuditionScreen()));
               }
               ),
-            TextButton(child: Text("Button3"), onPressed:(){}),
+            TextButton(
+             child: Text("View Scripts"),
+             onPressed:(){
+               Navigator.push(context,MaterialPageRoute(builder: (context)=>ScriptsScreen()));
+             }
+            ),
             TextButton(child: Text("Button4"), onPressed:(){}),
           ],),
       );

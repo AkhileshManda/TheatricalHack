@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:theatre_buddy/screens/app/audition_screen.dart';
+import 'package:theatre_buddy/widgets/drawer.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key? key }) : super(key: key);
 
@@ -14,6 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text("Title")
       ),
+      drawer: const DrawerWidget()
       
     );
   }
