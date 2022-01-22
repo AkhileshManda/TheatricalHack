@@ -24,55 +24,61 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(
-            height: 150,
-          ),
-          Container(
-            color: Colors.lightBlue[100],
-            height: 70.0,
+          
+          const Padding(
+            padding: EdgeInsets.all(10.0),
             child: Text(
-              " Theatre Buddy ",
+              "Theatre Buddy",
               style: TextStyle(
-                color: Colors.blue[900],
                 fontSize: 40,
-                fontStyle: FontStyle.italic,
-              ),
+                fontWeight: FontWeight.w600
+              )
             ),
           ),
-          const SizedBox(
-            height: 150,
+
+          const Padding(
+            padding: EdgeInsets.fromLTRB(6, 6, 6, 10),
+            child: Text(
+              "One stop place for all theatre geeks",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w200
+              )
+            ),
           ),
-          TextField(
-            controller: _nameCon,
-            decoration: InputDecoration(
-                contentPadding: const EdgeInsets.all(15),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                filled: false,
-                fillColor: Colors.grey,
-                hintText: "Email"),
+          
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: TextField(
+              controller: _nameCon,
+              decoration: InputDecoration(
+                  
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  filled: false,
+                  fillColor: Colors.grey,
+                  hintText: "Email"),
+            ),
           ),
-          const SizedBox(
-            height: 20,
+          
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: TextField(
+              obscureText: true,
+              controller: _passwordCon,
+              decoration: InputDecoration(
+                  
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  
+                  hintText: "Password"),
+            ),
           ),
-          TextField(
-            obscureText: true,
-            controller: _passwordCon,
-            decoration: InputDecoration(
-                contentPadding: const EdgeInsets.all(15),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                filled: false,
-                fillColor: Colors.grey,
-                hintText: "Password"),
-          ),
-          const SizedBox(
-            height: 50,
-          ),
+          
           ElevatedButton(
               onPressed: () async {
                 name = _nameCon.text;
@@ -85,19 +91,21 @@ class _AuthScreenState extends State<AuthScreen> {
                     password: pass,
                   );
 
-                  print(userCredential);
+                  //print(userCredential);
 
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                      MaterialPageRoute(builder: (context) => const HomeScreen()));
                 } on FirebaseAuthException catch (e) {
-                  print(e.toString());
-                  error = e.toString();
+                  //print(e.toString());
+                  
+                  setState(() {
+                    error = e.toString();
+                  });
                 }
-              },
-              child: Text('Sign In')),
-          const SizedBox(
-            height: 50,
-          ),
+                            },
+              child: const Text('Sign In')
+            ),
+          
           TextButton(
             child: Text(
               "New User? Click to Register",
@@ -105,7 +113,7 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => RegisterScreen()));
+                  MaterialPageRoute(builder: (context) => const RegisterScreen()));
             },
           ),
           if (error != "")

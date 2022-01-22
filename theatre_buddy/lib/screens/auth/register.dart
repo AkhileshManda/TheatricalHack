@@ -26,15 +26,55 @@ class _RegisterScreenState extends State<RegisterScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text("Theatre Buddy"),
-          TextField(
-            controller: _nameCon,
-            decoration: const InputDecoration(hintText: "Email"),
+          const Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              "Theatre Buddy",
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.w600,
+              )),
           ),
-          TextField(
-            obscureText: true,
-            controller: _passwordCon,
-            decoration: const InputDecoration(hintText: "Password"),
+
+          const Padding(
+            padding: EdgeInsets.fromLTRB(6, 6, 6, 10),
+            child: Text(
+              "One stop place for all theatre geeks",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w200
+              )
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: TextField(
+              controller: _nameCon,
+               decoration: InputDecoration(
+                  
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  filled: false,
+                  fillColor: Colors.grey,
+                  hintText: "Email")
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: TextField(
+              obscureText: true,
+              controller: _passwordCon,
+              decoration: InputDecoration(
+                  
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  
+                  hintText: "Password"),
+            ),
           ),
           ElevatedButton(
             onPressed: () async {
@@ -67,7 +107,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             },
           ),
           if (error != "")
-            Text("Error Signing In", style: TextStyle(color: Colors.red))
+            const Text("Error Signing In", style: TextStyle(color: Colors.red))
         ],
       ),
     );
