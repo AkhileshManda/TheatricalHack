@@ -2,12 +2,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:theatre_buddy/widgets/review_card.dart';
 import 'package:url_launcher/url_launcher.dart';
 class ScriptReviewScreen extends StatelessWidget {
   final String name;
   final String url;
+  final String description;
 
-  ScriptReviewScreen({Key? key, required this.name, required this.url}) : super(key: key);
+  ScriptReviewScreen({
+    Key? key, 
+    required this.name, 
+    required this.url, 
+    required this.description
+    }) : super(key: key);
   
   Stream<QuerySnapshot> get _reviewStream => FirebaseFirestore.instance.collection("scripts/$name/reviews").snapshots();
 
@@ -22,19 +29,30 @@ class ScriptReviewScreen extends StatelessWidget {
       appBar: AppBar(title: Text(name)),
       body: Column(
         children: [
-          Expanded(
+           Expanded(
             flex:1,
             child: Container(
+              decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('images/background1.png'), fit: BoxFit.cover),
+              ),
               child: Center(
-                child: ElevatedButton(child: Text("View Script"), onPressed:()async{
-                  if(await canLaunch(url)){
-                    launch(url);
-                  }
-                }),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(child: Text("View Script"), onPressed:()async{
+                      if(await canLaunch(url)){
+                        launch(url);
+                      }
+                    }),
+                    Text("Reviews", style: TextStyle(color:Colors.white, fontSize: 40, fontWeight: FontWeight.w300)),
+                  ],
+                ),
               )
               )
           ),
-          Expanded(
+          
+           Expanded(
             flex:1,
             child: StreamBuilder<QuerySnapshot>(
               stream: _reviewStream,
@@ -63,7 +81,7 @@ class ScriptReviewScreen extends StatelessWidget {
                   children: snapshot.data!.docs.map((DocumentSnapshot document) {
                      Map<String, dynamic> data =
                                 document.data()! as Map<String, dynamic>;
-                      return ListTile(title: Text(data["review"]));
+                      return ReviewCard(review: data["review"]);
           
                   }).toList()
                 );
@@ -71,8 +89,7 @@ class ScriptReviewScreen extends StatelessWidget {
               }
             ),
           ),
-
-    Container(
+           Container(
       margin: EdgeInsets.only(top: 8),
       padding: EdgeInsets.all(8),
       child: Row(
@@ -91,9 +108,7 @@ class ScriptReviewScreen extends StatelessWidget {
           ),
           IconButton(
             color: Theme.of(context).primaryColor,
-              icon: Icon(
-                Icons.send
-              ),
+              icon: Icon(Icons.send),
               onPressed: (){
                 _reviews.add({
 

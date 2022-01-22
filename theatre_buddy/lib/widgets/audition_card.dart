@@ -28,11 +28,6 @@ class AuditionCard extends StatelessWidget {
         
         ),
       )
-        
-
-      
-
-
     );
   }
 }

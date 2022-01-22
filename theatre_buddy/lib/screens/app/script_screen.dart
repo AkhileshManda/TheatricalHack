@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:theatre_buddy/screens/app/script_review_screen.dart';
 import 'package:theatre_buddy/widgets/drawer.dart';
+import 'package:theatre_buddy/widgets/script_card.dart';
 import './script_upload_screen.dart';
 
 class ScriptsScreen extends StatefulWidget {
@@ -51,10 +52,10 @@ class _ScriptsScreenState extends State<ScriptsScreen> {
                       return GestureDetector(
                         onTap: (){
                           Navigator.push(context, 
-                          MaterialPageRoute(builder: (context)=>ScriptReviewScreen(name: data["name"], url: data["url"])
+                          MaterialPageRoute(builder: (context)=>ScriptReviewScreen(name: data["name"], url: data["url"],description: data["description"],)
                           ));
                         },
-                        child: ListTile(title: Text(data["name"])));
+                        child: ScriptCard(title: data["name"], description: data["description"]));
                     }).toList(),
 
                   );
