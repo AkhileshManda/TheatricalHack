@@ -37,9 +37,9 @@ dependencies:
   cloud_firestore: 
   firebase_core:
   firebase_auth:
-  firebase_storage: ^7.0.0  
-  flutter_document_picker: ^4.0.0 
-  flutter_plugin_pdf_viewer: ^1.0.7
+  #firebase_storage: ^7.0.0  
+  #flutter_document_picker: ^4.0.0 
+  #flutter_plugin_pdf_viewer: ^1.0.7
   
 
 dev_dependencies:

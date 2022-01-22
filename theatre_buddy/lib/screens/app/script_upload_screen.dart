@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
-import 'package:flutter_document_picker/flutter_document_picker.dart';  
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage; 
+//import 'package:flutter_document_picker/flutter_document_picker.dart';  
+//import 'package:firebase_storage/firebase_storage.dart' as firebase_storage; 
 
 class ScriptUploadScreeen extends StatefulWidget {
   const ScriptUploadScreeen({ Key? key }) : super(key: key);
@@ -12,33 +12,34 @@ class ScriptUploadScreeen extends StatefulWidget {
 }
 
 class _ScriptUploadScreeenState extends State<ScriptUploadScreeen> {
+  
 
 
-  Future<firebase_storage.UploadTask> uploadFile(File file) async {  
+  //Future<firebase_storage.UploadTask> uploadFile(File file) async {  
    //if (file == null) {  
     //Scaffold.of(context)  
         //.showSnackBar(SnackBar(content: Text("Unable to Upload")));  
     //return null;  
   // } 
 
-   firebase_storage.UploadTask uploadTask;  
+   //firebase_storage.UploadTask uploadTask;  
   
   // Create a Reference to the file  
-   firebase_storage.Reference ref = firebase_storage.FirebaseStorage.instance  
-  .ref()  
-      .child('playground')  
-      .child('/some-file.pdf');  
+  // firebase_storage.Reference ref = firebase_storage.FirebaseStorage.instance  
+ // .ref()  
+     // .child('playground')  
+      //.child('/some-file.pdf');  
   
-  final metadata = firebase_storage.SettableMetadata(  
-      contentType: 'file/pdf',  
-      customMetadata: {'picked-file-path': file.path});  
-  print("Uploading..!");  
+  //final metadata = firebase_storage.SettableMetadata(  
+      //contentType: 'file/pdf',  
+     // customMetadata: {'picked-file-path': file.path});  
+  //print("Uploading..!");  
   
-  uploadTask = ref.putData(await file.readAsBytes(), metadata);  
+  //uploadTask = ref.putData(await file.readAsBytes(), metadata);  
   
-  print("done..!");  
-  return Future.value(uploadTask);  
-  }
+  //print("done..!");  
+  //return Future.value(uploadTask);  
+  //}
 
   final TextEditingController _scriptNamecon = TextEditingController();
   final TextEditingController _descCon = TextEditingController();

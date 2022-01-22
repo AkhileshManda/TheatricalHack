@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:theatre_buddy/screens/app/script_review_screen.dart';
 import 'package:theatre_buddy/widgets/drawer.dart';
 import './script_upload_screen.dart';
 
@@ -47,7 +48,13 @@ class _ScriptsScreenState extends State<ScriptsScreen> {
                     children: snapshot.data!.docs.map((DocumentSnapshot document){
                       Map<String,dynamic> data = document.data()! as Map<String, dynamic>;
 
-                      return ListTile(title: Text(data["name"]));
+                      return GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, 
+                          MaterialPageRoute(builder: (context)=>ScriptReviewScreen(name: data["name"], url: data["url"])
+                          ));
+                        },
+                        child: ListTile(title: Text(data["name"])));
                     }).toList(),
 
                   );
