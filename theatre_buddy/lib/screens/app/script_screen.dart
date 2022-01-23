@@ -20,7 +20,7 @@ class _ScriptsScreenState extends State<ScriptsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: const Text("Script Review")),
-        drawer: const DrawerWidget(),
+        drawer: DrawerWidget(),
         body: StreamBuilder<QuerySnapshot>(
             stream: _scriptsStream,
             builder: (ctx, snapshot) {

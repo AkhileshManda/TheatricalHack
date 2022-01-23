@@ -25,18 +25,8 @@
             <action android:name="android.intent.action.SEND" />
             <data android:mimeType="*/*" />
         </intent>
+        
     </queries>
-=======
-
-   <queries>
-  <!-- If your app opens https URLs -->
-  <intent>
-    <action android:name="android.intent.action.VIEW" />
-    <data android:scheme="https" />
-  </intent>
-  </queries>
-
->>>>>>> 8f9f0e1760a1cfe4cebc4da9953dc2e44cdcf847
    <application
         android:label="theatre_buddy"
         android:icon="@mipmap/ic_launcher"

@@ -14,17 +14,44 @@ class ScriptCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             ListTile(
-              title: Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 20,
+              title: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 20,
+                  ),
                 ),
               ),
               subtitle: SizedBox(
-                  width: 200,
-                  child: Text(
-                    description,
-                    overflow: TextOverflow.fade,
+                  width: 400,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          description,
+                          overflow: TextOverflow.fade,
+                        ),
+                      ),
+                      SizedBox(
+                        height:50,
+                        child: RatingBar.builder(
+                          initialRating: 3,
+                          allowHalfRating: false,
+                          minRating: 1,
+                          direction: Axis.horizontal,
+                          itemBuilder: (context, index) => Icon(
+                          Icons.star,
+                          color: Colors.amber[400],
+                         ),
+                         itemCount: 5,
+                         itemSize: 35.0,
+                         onRatingUpdate: (double value) {},
+                     ),
+                      ),
+                    ],
                   )),
               trailing: Text("Click To review",
                   style: TextStyle(
@@ -33,19 +60,7 @@ class ScriptCard extends StatelessWidget {
                       fontWeight: FontWeight.w700)),
             ),
             // SizedBox(height: 5),
-            RatingBar.builder(
-              initialRating: 3,
-              allowHalfRating: false,
-              minRating: 1,
-              direction: Axis.horizontal,
-              itemBuilder: (context, index) => Icon(
-                Icons.star,
-                color: Colors.amber[400],
-              ),
-              itemCount: 5,
-              itemSize: 35.0,
-              onRatingUpdate: (double value) {},
-            ),
+            
           ]),
     );
   }

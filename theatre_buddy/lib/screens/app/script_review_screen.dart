@@ -26,7 +26,8 @@ class ScriptReviewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
    
     return Scaffold(
-      appBar: AppBar(title: Text(name)),
+      
+      appBar: AppBar(title: Text(name),elevation:0),
       body: Column(
         children: [
            Expanded(
