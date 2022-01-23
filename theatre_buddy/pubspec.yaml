@@ -40,6 +40,7 @@ dependencies:
   model_viewer: ^0.8.1
   url_launcher: ^6.0.18
   carousel_slider: ^4.0.0
+  flutter_rating_bar: ^4.0.0
   #firebase_storage: ^7.0.0  
   #flutter_document_picker: ^4.0.0 
   #flutter_plugin_pdf_viewer: ^1.0.7
