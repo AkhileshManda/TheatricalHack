@@ -19,8 +19,15 @@ class DrawerWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Image(
-              image:AssetImage('images/background1.png')
+            Stack(
+              children: [
+                const Image(
+                  image:AssetImage('images/background1.png')
+                ),
+
+                Text("Your theatre buddy", style: TextStyle(color:Colors.white, fontSize:25)),
+              ],
+              alignment: Alignment.center
             ),
             Expanded(
               child: Padding(
@@ -28,34 +35,44 @@ class DrawerWidget extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+
+                    ListTile(
+                      leading: Icon(Icons.home,color:Colors.indigo),
+                      title: Text("Home"),
+                      onTap: (){
+                        Navigator.push(context,MaterialPageRoute(builder: (context)=>const HomeScreen()));
+                      }
+                    ),
+
+                    ListTile(
+                      leading: Icon(Icons.camera_roll,color: Colors.indigo),
+                      title: Text("Auditions"),
+                      onTap: (){
+                        Navigator.push(context,MaterialPageRoute(builder: (context)=>const AuditionScreen()));
+                      }
+                    ),
+
+                    ListTile(
+                      leading: Icon(Icons.book,color: Colors.indigo),
+                      title: Text("scripts"),
+                      onTap: (){
+                        Navigator.push(context,MaterialPageRoute(builder: (context)=>const ScriptsScreen()));
+                      }
+                    ),
+
+                    ListTile(
+                      leading: Icon(Icons.shop,color: Colors.indigo),
+                      title: Text("Shop"),
+                      onTap: (){
+                        Navigator.push(context,MaterialPageRoute(builder: (context)=>const CostumesPage()));
+                      }
+                    ),
+
+
+
             
-                    TextButton(
-                  child: const Text("Home"), 
-                onPressed:(){
-            
-                  Navigator.push(context,MaterialPageRoute(builder: (context)=>const HomeScreen()));
-                  
-                }),
-            
-                TextButton(
-                  child: const Text("Schedule Auditions"), 
-                  onPressed:(){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const AuditionScreen()));
-                  }
-                  ),
-            
-                  TextButton(
-                 child: Text("View Scripts"),
-                 onPressed:(){
-                   Navigator.push(context,MaterialPageRoute(builder: (context)=>ScriptsScreen()));
-                 }
-                ),
-            
-                 TextButton(child: Text("Shop"), onPressed:(){
-                  Navigator.push(context,MaterialPageRoute(builder: (context)=>const CostumesPage() ));
-                }),
-            
-                ]
+                           
+                  ]
                 ),
               ),
             ),
@@ -81,7 +98,8 @@ class DrawerWidget extends StatelessWidget {
             )
            
            
-          ],),
-      );
+          ],
+        )
+    );
   }
 }
