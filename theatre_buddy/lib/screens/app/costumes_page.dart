@@ -31,10 +31,11 @@ class CostumesPage extends StatelessWidget {
       appBar: AppBar(title: const Text("Shop")),
       drawer: DrawerWidget(),
       body: SingleChildScrollView(
-        child: Column(children: [
+        child: Column(
+          children: [
           SizedBox(
             width: MediaQuery.of(context).size.width,
-            height: 375,
+            height: 400,
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
@@ -103,7 +104,7 @@ class CostumesPage extends StatelessWidget {
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width,
-            height: 375,
+            height: 400,
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
