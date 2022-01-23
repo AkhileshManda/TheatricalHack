@@ -1,16 +1,17 @@
 # theatre_buddy
 
-A new Flutter project.
-app for mlh...!!!!
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![WhatsApp Image 2022-01-23 at 18 29 53](https://user-images.githubusercontent.com/70640191/150680465-5c3b0283-9848-4206-8afa-17ee05cad230.jpeg)
+![WhatsApp Image 2022-01-23 at 18 30 08](https://user-images.githubusercontent.com/70640191/150680467-165fddc0-5d9e-4422-88b0-dae1b14473a3.jpeg)
+![WhatsApp Image 2022-01-23 at 18 30 27](https://user-images.githubusercontent.com/70640191/150680470-0ceba01f-877c-485d-96eb-ecef87d44c2c.jpeg)
+![WhatsApp Image 2022-01-23 at 18 30 45](https://user-images.githubusercontent.com/70640191/150680473-beaf303d-f117-4e7e-bdcf-2d37b89cefb4.jpeg)
+![WhatsApp Image 2022-01-23 at 18 30 45 (1)](https://user-images.githubusercontent.com/70640191/150680474-2c167bc9-b980-4740-974e-cac32cfa4c41.jpeg)
+![WhatsApp Image 2022-01-23 at 18 30 45 (2)](https://user-images.githubusercontent.com/70640191/150680494-3e2e712f-e66b-446e-9d42-f4b421cb5718.jpeg)
+![WhatsApp Image 2022-01-23 at 18 30 45 (3)](https://user-images.githubusercontent.com/70640191/150680496-28a17ac4-e7b7-4d9e-872a-27a905cae144.jpeg)
+![WhatsApp Image 2022-01-23 at 18 30 45 (4)](https://user-images.githubusercontent.com/70640191/150680498-2940d4b6-340e-44fb-b046-df3d09fbda01.jpeg)
+![WhatsApp Image 2022-01-23 at 18 30 45 (5)](https://user-images.githubusercontent.com/70640191/150680501-4a6d844b-4e82-4a5e-a2b4-1523622670dd.jpeg)
+![WhatsApp Image 2022-01-23 at 18 30 45 (6)](https://user-images.githubusercontent.com/70640191/150680503-a67e1f0c-a902-49df-a6b5-b3305ac3c6a3.jpeg)
+![WhatsApp Image 2022-01-23 at 18 30 45 (7)](https://user-images.githubusercontent.com/70640191/150680506-21ecdcfe-6e69-4356-b69a-0901d11cca7d.jpeg)
+![WhatsApp Image 2022-01-23 at 18 30 45 (8)](https://user-images.githubusercontent.com/70640191/150680509-35a5254c-53f6-4771-b17c-d7b06d016285.jpeg)
+![WhatsApp Image 2022-01-23 at 18 30 45 (9)](https://user-images.githubusercontent.com/70640191/150680513-75405a7b-e58a-404b-972b-462e96be31cd.jpeg)
+![WhatsApp Image 2022-01-23 at 18 30 45 (10)](https://user-images.githubusercontent.com/70640191/150680516-ae6878e4-bce3-4225-9ea1-c62f87359ef9.jpeg)
+![WhatsApp Image 2022-01-23 at 18 30 45 (11)](https://user-images.githubusercontent.com/70640191/150680519-fd79d25d-541a-4b02-bfbb-44d72317d2ca.jpeg)
