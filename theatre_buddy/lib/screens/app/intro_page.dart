@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:theatre_buddy/screens/app/audition_screen.dart';
+import 'package:theatre_buddy/screens/auth/sign_in.dart';
 import 'package:theatre_buddy/widgets/drawer.dart';
 import '../../widgets/reuseable_card.dart';
 import 'script_screen.dart';
@@ -17,94 +18,46 @@ class _IntroScreenState extends State<IntroScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('images/background1.png'),
-                  fit: BoxFit.cover),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(
-                    height: 200.0,
-                    child: Image(
-                      image: AssetImage('images/drama.png'),
-                    )),
-                const Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Text("What we Offer",
-                      style: TextStyle(color: Colors.white, fontSize: 30)),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => AuditionScreen()));
-                  },
-                  child: ReuseableCard(
-                    cardChild: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Check Auditions',
-                          style: TextStyle(
-                              fontSize: 20.0,
-                              color: Colors.blue[900],
-                              fontWeight: FontWeight.w900),
-                        ),
-                      ],
+        child: Container(
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('images/background1.png'),
+                fit: BoxFit.cover),
+          ),
+          child: Column(
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    const SizedBox(
+                        height: 200.0,
+                        child: Image(
+                          image: AssetImage('images/drama.png'),
+                        )),
+                    const Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: Text("Theatre Buddy",
+                          style: TextStyle(color: Colors.white, fontSize: 30)),
                     ),
-                  ),
+                    
+                  ],
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ScriptsScreen()));
-                  },
-                  child: ReuseableCard(
-                    cardChild: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'View Scripts',
-                          style: TextStyle(
-                              fontSize: 20.0,
-                              color: Colors.blue[900],
-                              fontWeight: FontWeight.w900),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ARPage()));
-                  },
-                  child: ReuseableCard(
-                    cardChild: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Buy Props',
-                          style: TextStyle(
-                              fontSize: 20.0,
-                              color: Colors.blue[900],
-                              fontWeight: FontWeight.w900),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+              
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: ElevatedButton(
+                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.green) ),
+                  child: Text("Lets get started !"), 
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> AuthScreen()));
+                  }),
+              )
+            ],
           ),
         ),
       ),
