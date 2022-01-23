@@ -1,4 +1,3 @@
-// @
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,16 +14,7 @@ class AuditionScreen extends StatefulWidget {
 }
 
 class _AuditionScreenState extends State<AuditionScreen> {
-  final ScrollController _controller = ScrollController();
-  final double _htOfCard = 200.0;
-  // void _animateToIndex(int index) {
-  //   _controller.animateTo(
-  //     index * _htOfCard,
-  //     duration: const Duration(seconds: 2),
-  //     curve: Curves.fastOutSlowIn,
-  //   );
-  // }
-
+  
   @override
   Widget build(BuildContext context) {
     final CollectionReference events =
@@ -53,7 +43,7 @@ class _AuditionScreenState extends State<AuditionScreen> {
           elevation: 0,
                
         ),
-        drawer: const DrawerWidget(),
+        drawer: DrawerWidget(),
         body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

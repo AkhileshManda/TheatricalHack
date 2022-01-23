@@ -7,20 +7,31 @@ class CostumesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Props")),
-      drawer: const DrawerWidget(),
+      appBar: AppBar(title: const Text("Shop")),
+      drawer: DrawerWidget(),
       body: SingleChildScrollView(
         child: Column(
+          
           children: [
             SizedBox(
               width: MediaQuery.of(context).size.width,
               height: 350,
               child: Column(
+                
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Text("Costumes", style: TextStyle(fontSize: 40)),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const[
+                         Text("Costumes", style: TextStyle(fontSize: 40)),
+                         Text("A great play needs great costumes", 
+                        style: TextStyle(fontSize: 20, fontWeight:FontWeight.w300
+                        )),
+                      ],
+                    ),
                   ),
                   Expanded(
                     child: ListView(
@@ -39,16 +50,24 @@ class CostumesPage extends StatelessWidget {
                 ]
               ),
             ),
-      
             SizedBox(
               width: MediaQuery.of(context).size.width,
               height: 350,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Text("Props", style: TextStyle(fontSize: 40)),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const[
+                         Text("Props", style: TextStyle(fontSize: 40)),
+                         Text("Bring your play to life", 
+                        style: TextStyle(fontSize: 20, fontWeight:FontWeight.w300
+                        )),
+                      ],
+                    ),
                   ),
                   Expanded(
                     child: ListView(
@@ -60,7 +79,6 @@ class CostumesPage extends StatelessWidget {
                         CostumeCard(isAvailable: true, image: "costume"),
                         CostumeCard(isAvailable: true, image: "costume"),
                         CostumeCard(isAvailable: true, image: "costume"),
-      
                       ]
                     ),
                   ),

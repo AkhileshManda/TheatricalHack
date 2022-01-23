@@ -51,44 +51,64 @@ class _ScriptUploadScreeenState extends State<ScriptUploadScreeen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Upload Script")),
-      drawer: const Drawer(),
-      body: Column(
-        children: [
-          
-          TextField(
-            controller: _scriptNamecon,
-            decoration: const InputDecoration(
-              labelText : "Script Name",
+      
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+      
+            Stack(
+              children:[ 
+                Image(image: AssetImage('images/background1.png')),
+                Text("Upload your script", style: TextStyle(color: Colors.white, fontSize: 35))
+                
+                ],
+                alignment: Alignment.center,
+              ),
+            
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: TextField(
+                controller: _scriptNamecon,
+                decoration: const InputDecoration(
+                  labelText : "Script Name",
+                ),
+              ),
             ),
-          ),
-
-          TextField(
-            controller: _descCon,
-            decoration: const InputDecoration(
-              labelText : "Short Summary",
-            )
-          ),
-
-          TextField(
-            controller: _urlCon,
-            decoration: const InputDecoration(
-              labelText : "Script Url",
-            )
-          ),
-          
-          ElevatedButton(
-            onPressed: (){
-
-              scripts.doc(_scriptNamecon.text.toString().trim()).set({
-                'name' : _scriptNamecon.text.toString(),
-                'description' : _descCon.text.toString(),
-                'url' : _urlCon.text.toString(),
-              });
-              
-
-            }, 
-            child: const Text("Upload"))
-        ],
+      
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: TextField(
+                controller: _descCon,
+                decoration: const InputDecoration(
+                  labelText : "Short Summary",
+                )
+              ),
+            ),
+      
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: TextField(
+                controller: _urlCon,
+                decoration: const InputDecoration(
+                  labelText : "Script Url",
+                )
+              ),
+            ),
+            
+            ElevatedButton(
+              onPressed: (){
+      
+                scripts.doc(_scriptNamecon.text.toString().trim()).set({
+                  'name' : _scriptNamecon.text.toString(),
+                  'description' : _descCon.text.toString(),
+                  'url' : _urlCon.text.toString(),
+                });
+                
+      
+              }, 
+              child: const Text("Upload"))
+          ],
+        ),
       )
     );
   }
