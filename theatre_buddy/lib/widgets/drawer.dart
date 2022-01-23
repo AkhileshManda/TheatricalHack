@@ -64,7 +64,7 @@ class DrawerWidget extends StatelessWidget {
                       leading: Icon(Icons.shop,color: Colors.indigo),
                       title: Text("Shop"),
                       onTap: (){
-                        Navigator.push(context,MaterialPageRoute(builder: (context)=>const CostumesPage()));
+                        Navigator.push(context,MaterialPageRoute(builder: (context)=> CostumesPage()));
                       }
                     ),
 

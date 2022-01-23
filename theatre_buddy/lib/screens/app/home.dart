@@ -4,7 +4,6 @@ import 'package:theatre_buddy/screens/app/costumes_page.dart';
 import 'package:theatre_buddy/screens/app/script_screen.dart';
 import 'package:theatre_buddy/widgets/carousel.dart';
 import 'package:theatre_buddy/widgets/cod_card.dart';
-import 'package:theatre_buddy/widgets/costumes_card.dart';
 import 'package:theatre_buddy/widgets/drawer.dart';
 import 'package:theatre_buddy/widgets/play_of_day.dart';
 import 'package:theatre_buddy/widgets/reuseable_card.dart';

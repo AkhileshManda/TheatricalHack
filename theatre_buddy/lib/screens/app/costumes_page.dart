@@ -1,9 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:theatre_buddy/widgets/costumes_card.dart';
+import 'package:theatre_buddy/models/costume_model.dart';
+import 'package:theatre_buddy/screens/app/ar_page.dart';
 import 'package:theatre_buddy/widgets/drawer.dart';
 
 class CostumesPage extends StatelessWidget {
-  const CostumesPage({Key? key}) : super(key: key);
+
+  List<CostumeCardModel> costumes = [
+
+    CostumeCardModel(isAvailable: true, imageLoc: "images/astro.png"),
+    CostumeCardModel(isAvailable: false, imageLoc: "images/princess.png"),
+    CostumeCardModel(isAvailable: false, imageLoc: "images/santa.png"),
+    CostumeCardModel(isAvailable: false, imageLoc: "images/schooluniform.png"),
+
+  ];
+
+  List<CostumeCardModel> props = [
+
+    CostumeCardModel(isAvailable: false, imageLoc: "images/carnivalmask.png"),
+    CostumeCardModel(isAvailable: false, imageLoc: "images/cosmeticprops.png"),
+    CostumeCardModel(isAvailable: true, imageLoc: "images/astro.png"),
+    CostumeCardModel(isAvailable: false, imageLoc: "images/background1.png"),
+
+  ];
+
+  CostumesPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +34,7 @@ class CostumesPage extends StatelessWidget {
         child: Column(children: [
           SizedBox(
             width: MediaQuery.of(context).size.width,
-            height: 350,
+            height: 375,
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
@@ -31,22 +52,58 @@ class CostumesPage extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          CostumeCard(isAvailable: true, imageLoad: "costume"),
-                          CostumeCard(isAvailable: false, imageLoad: "costume"),
-                          CostumeCard(isAvailable: true, imageLoad: "costume"),
-                          CostumeCard(isAvailable: true, imageLoad: "costume"),
-                          CostumeCard(isAvailable: true, imageLoad: "costume"),
-                        ]),
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: costumes.length,
+                      itemBuilder: (ctx, index){
+                        return Card(
+                            child: Column(
+              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                                SizedBox(
+                                  width: 175,
+                                  height: 175,
+                                  child: Image(
+                                    image: AssetImage(costumes[index].imageLoc), fit: BoxFit.cover),
+                                ),
+                                Container(
+                                  child: Row(
+                                   children: [
+                                    costumes[index].isAvailable
+                      ? const Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text("Available",
+                              style: TextStyle(color: Colors.green)),
+                        )
+                      : const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text("Not Available",
+                              style: TextStyle(color: Colors.red)),
+                        ),
+                  if (costumes[index].isAvailable)
+                    ElevatedButton(
+                      child: const Text("View in AR"),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ARPage()));
+                      },
+                    )
+                ],
+              ),
+            ),
+            if (costumes[index].isAvailable)
+              TextButton(child: const Text("Place Order"), onPressed: () {})
+          ]));
+                      }
+                    )
                   ),
                 ]),
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width,
-            height: 350,
+            height: 375,
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
@@ -63,25 +120,56 @@ class CostumesPage extends StatelessWidget {
                       ],
                     ),
                   ),
+
                   Expanded(
-                    child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          CostumeCard(
-                              isAvailable: true, imageLoad: "images/astro.png"),
-                          CostumeCard(
-                              isAvailable: false,
-                              imageLoad: "images/santa.png"),
-                          CostumeCard(
-                              isAvailable: true,
-                              imageLoad: "images/princess.png"),
-                          CostumeCard(
-                              isAvailable: true,
-                              imageLoad: "images/schooluniform.png"),
-                          CostumeCard(isAvailable: true, imageLoad: "costume"),
-                        ]),
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: props.length,
+                      itemBuilder: (ctx, index){
+                        return Card(
+                            child: Column(
+              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                                SizedBox(
+                                  width: 175,
+                                  height: 175,
+                                  child: Image(
+                                    image: AssetImage(props[index].imageLoc), fit: BoxFit.cover),
+                                ),
+                                Container(
+                                  child: Row(
+                                   children: [
+                                    props[index].isAvailable
+                      ? const Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text("Available",
+                              style: TextStyle(color: Colors.green)),
+                        )
+                      : const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text("Not Available",
+                              style: TextStyle(color: Colors.red)),
+                        ),
+                  if (props[index].isAvailable)
+                    ElevatedButton(
+                      child: const Text("View in AR"),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ARPage()));
+                      },
+                    )
+                ],
+              ),
+            ),
+            if (props[index].isAvailable)
+              TextButton(child: const Text("Place Order"), onPressed: () {})
+          ]));
+                      }
+                    )
                   ),
+                  
                 ]),
           )
         ]),
