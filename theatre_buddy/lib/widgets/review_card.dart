@@ -9,7 +9,8 @@ class ReviewCard extends StatelessWidget {
     return Card(
       child: ListTile(
         leading: Icon(Icons.person),
-        title: Text(review)
+        title: Text("Anonymous"),
+        subtitle: Text(review, style: TextStyle(fontSize: 15),),
       )
     );
   }
