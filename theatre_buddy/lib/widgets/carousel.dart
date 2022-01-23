@@ -4,10 +4,10 @@ import 'package:theatre_buddy/models/caro_model.dart';
 
 class Carousel extends StatelessWidget {
   final List<CaroImage> contents = [
-    CaroImage(content: '1', img: 'images/drama.png'),
-    CaroImage(content: '2', img: 'images/drama.png'),
+    CaroImage(content: '1', img: 'images/quotes2.png'),
+    CaroImage(content: '2', img: 'images/quotes1.png'),
     CaroImage(content: '3', img: 'images/drama.png'),
-    CaroImage(content: '4', img: 'images/drama.png'),
+    CaroImage(content: '4', img: 'images/quotes4.png'),
   ];
 
   Carousel({Key? key}) : super(key: key);
@@ -25,8 +25,7 @@ class Carousel extends StatelessWidget {
                   child: Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(contents[i].img),
-                        fit: BoxFit.cover)),
+                        image: AssetImage(contents[i].img), fit: BoxFit.cover)),
               )),
             ),
           );
