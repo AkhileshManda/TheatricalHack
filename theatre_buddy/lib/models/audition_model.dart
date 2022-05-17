@@ -1,3 +1,5 @@
+// Model to store necessary information about audition
+
 class Audition{
   final String play_name;
   final String role;

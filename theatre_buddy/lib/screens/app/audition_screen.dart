@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:theatre_buddy/widgets/audition_card.dart';
@@ -17,14 +16,14 @@ class _AuditionScreenState extends State<AuditionScreen> {
   
   @override
   Widget build(BuildContext context) {
+    
+    //get all the events from cloud firestore
     final CollectionReference events =
         FirebaseFirestore.instance.collection('auditions');
 
     final Stream<QuerySnapshot> _auditionsStream =
         FirebaseFirestore.instance.collection('auditions').snapshots();
-
-    final FirebaseAuth _auth = FirebaseAuth.instance;
-
+    
     final TextEditingController dateinput = TextEditingController();
     final TextEditingController eventNameInput = TextEditingController();
     final TextEditingController roleInput = TextEditingController();
@@ -48,7 +47,7 @@ class _AuditionScreenState extends State<AuditionScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              
+              //Listen to the stream of auditions and display data accordingly
               StreamBuilder<QuerySnapshot>(
                 builder: (ctx, snapshot) {
                   //Load For Data
@@ -56,6 +55,14 @@ class _AuditionScreenState extends State<AuditionScreen> {
                     return const Center(child: CircularProgressIndicator());
                   }
 
+                  //Firebase expired condition 
+
+                  if(snapshot.data == null){
+                    return Center(child: Text(
+                      "Database failed contact admin"
+                    ));
+                  }
+                  
                   //If no auditions
                   if (snapshot.data!.size == 0) {
                     return const Padding(
@@ -70,7 +77,6 @@ class _AuditionScreenState extends State<AuditionScreen> {
                   }
 
                   //else
-
                   return Expanded(
                     child: ListView(
                       shrinkWrap: true,
@@ -79,6 +85,8 @@ class _AuditionScreenState extends State<AuditionScreen> {
                            Map<String, dynamic> data =
                                document.data()! as Map<String, dynamic>;
                            //print(data);
+                           //calculate days remaining
+                           
                            int days = DateTime.parse(data["time"])
                                .difference(DateTime.now())
                                .inDays;
@@ -98,8 +106,10 @@ class _AuditionScreenState extends State<AuditionScreen> {
             ],
           ),
         ),
+        //Add Event button
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.blue,
+          //open modal sheet on pressed
           onPressed: () {
             showModalBottomSheet<void>(
                 isScrollControlled: true,
@@ -111,6 +121,7 @@ class _AuditionScreenState extends State<AuditionScreen> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
+                          //Form
                           Padding(
                             padding: const EdgeInsets.all(10.0),
                             child: TextField(
@@ -168,9 +179,12 @@ class _AuditionScreenState extends State<AuditionScreen> {
                                   const InputDecoration(hintText: "Email"),
                             ),
                           ),
+                          
+                          //Submit button
                           ElevatedButton(
                               onPressed: () {
                                 //print(EventNameInput.text.toString());
+                                //set data on pressed
                                 events.doc(eventNameInput.text.toString()).set({
                                   'play_name': eventNameInput.text.toString(),
                                   'time': dateinput.text.toString(),
@@ -187,6 +201,8 @@ class _AuditionScreenState extends State<AuditionScreen> {
                   );
                 });
           },
+          
+          
           child: const Center(
               child: Icon(
             Icons.add,

@@ -1,3 +1,4 @@
+//Shop screen
 import 'package:flutter/material.dart';
 import 'package:theatre_buddy/models/costume_model.dart';
 import 'package:theatre_buddy/screens/app/ar_page.dart';
@@ -33,6 +34,7 @@ class CostumesPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+          //Costume Section 
           SizedBox(
             width: MediaQuery.of(context).size.width,
             height: 400,
@@ -40,6 +42,7 @@ class CostumesPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  //title and subtitle
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Column(
@@ -52,6 +55,8 @@ class CostumesPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                  
+                  //display all costumes...scroll horizontal
                   Expanded(
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
@@ -61,6 +66,7 @@ class CostumesPage extends StatelessWidget {
                             child: Column(
               //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
+                             
                                 SizedBox(
                                   width: 175,
                                   height: 175,
@@ -81,6 +87,8 @@ class CostumesPage extends StatelessWidget {
                           child: Text("Not Available",
                               style: TextStyle(color: Colors.red)),
                         ),
+                  
+                  //View in AR only if available
                   if (costumes[index].isAvailable)
                     ElevatedButton(
                       child: const Text("View in AR"),
@@ -102,6 +110,8 @@ class CostumesPage extends StatelessWidget {
                   ),
                 ]),
           ),
+          
+          //Prop section 
           SizedBox(
             width: MediaQuery.of(context).size.width,
             height: 400,

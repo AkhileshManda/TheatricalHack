@@ -1,6 +1,5 @@
+//Reviews of screen
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:theatre_buddy/widgets/review_card.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -41,12 +40,13 @@ class ScriptReviewScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(child: Text("View Script"), onPressed:()async{
+                    ElevatedButton(
+                      child: const Text("View Script"), onPressed:()async{
                       if(await canLaunch(url)){
                         launch(url);
                       }
                     }),
-                    Text("Reviews", style: TextStyle(color:Colors.white, fontSize: 40, fontWeight: FontWeight.w300)),
+                    const Text("Reviews", style: TextStyle(color:Colors.white, fontSize: 40, fontWeight: FontWeight.w300)),
                   ],
                 ),
               )

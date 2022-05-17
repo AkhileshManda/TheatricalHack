@@ -1,10 +1,7 @@
+//splash screen
 import 'package:flutter/material.dart';
-import 'package:theatre_buddy/screens/app/audition_screen.dart';
 import 'package:theatre_buddy/screens/auth/sign_in.dart';
-import 'package:theatre_buddy/widgets/drawer.dart';
-import '../../widgets/reuseable_card.dart';
-import 'script_screen.dart';
-import 'ar_page.dart';
+
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({Key? key}) : super(key: key);

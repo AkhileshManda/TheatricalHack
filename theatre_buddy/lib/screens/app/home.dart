@@ -27,15 +27,15 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                //TODO UPDATE IMAGE
-                Carousel(),
+              Carousel(),
 
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Text("Quick Navigation :",
                       style: TextStyle(fontSize: 25)),
                 ),
 
+                //Quick Navigation
                 SizedBox(
                   height: 50,
                   child: ListView(
@@ -121,26 +121,26 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
 
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child:
                       Text("Play of the day :", style: TextStyle(fontSize: 25)),
                 ),
-                //TODO UPDATE IMAGE
+                
                 const PlayOfTheDayCard(
                     title: "Hamlet",
                     author: "Shakespeare",
                     image: 'images/hamlet.jpg',
                     url: 'http://shakespeare.mit.edu/hamlet/full.html'),
-                //TODO: UPDATE IMAGE
+                
                 const PlayOfTheDayCard(
                     title: "Merchant Of Venice",
                     author: "Shakespeare",
                     image: 'images/mov.jpg',
                     url: 'http://shakespeare.mit.edu/merchant/full.html'),
 
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Text("Costume of the day:",
                       style: TextStyle(fontSize: 25)),
                 ),

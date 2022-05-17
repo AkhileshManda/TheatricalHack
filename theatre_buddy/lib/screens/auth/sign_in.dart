@@ -11,6 +11,7 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  
   final TextEditingController _nameCon = TextEditingController();
   final TextEditingController _passwordCon = TextEditingController();
 
@@ -27,6 +28,7 @@ class _AuthScreenState extends State<AuthScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           
+          //Title
           const Padding(
             padding: EdgeInsets.all(10.0),
             child: Text(
@@ -38,6 +40,7 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
           ),
 
+          //subtitle
           const Padding(
             padding: EdgeInsets.fromLTRB(6, 6, 6, 10),
             child: Text(
@@ -49,6 +52,7 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
           ),
           
+          //email field
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextField(
@@ -64,6 +68,7 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
           ),
           
+          //password field
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextField(
@@ -93,6 +98,8 @@ class _AuthScreenState extends State<AuthScreen> {
 
                   //print(userCredential);
 
+                  //if user is signed in go to home page
+
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const HomeScreen()));
                 } on FirebaseAuthException catch (e) {
@@ -106,6 +113,7 @@ class _AuthScreenState extends State<AuthScreen> {
               child: const Text('Sign In')
             ),
           
+          //toggle
           TextButton(
             child: Text(
               "New User? Click to Register",
@@ -116,6 +124,8 @@ class _AuthScreenState extends State<AuthScreen> {
                   MaterialPageRoute(builder: (context) => const RegisterScreen()));
             },
           ),
+          
+          //display error
           if (error != "")
             Text("Error Signing In", style: TextStyle(color: Colors.red[900]))
         ],

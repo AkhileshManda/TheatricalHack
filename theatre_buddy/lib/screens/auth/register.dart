@@ -11,6 +11,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  
   final TextEditingController _nameCon = TextEditingController();
   final TextEditingController _passwordCon = TextEditingController();
 
@@ -26,6 +27,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          //Title 
           const Padding(
             padding: EdgeInsets.all(10.0),
             child: Text(
@@ -36,6 +38,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               )),
           ),
 
+          //subtitle 
           const Padding(
             padding: EdgeInsets.fromLTRB(6, 6, 6, 10),
             child: Text(
@@ -47,6 +50,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
           ),
 
+          //Email field
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextField(
@@ -62,6 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
           ),
 
+          //Password field
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextField(
@@ -76,11 +81,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   hintText: "Password"),
             ),
           ),
+          
+          //Sign Up
           ElevatedButton(
             onPressed: () async {
               name = _nameCon.text;
               pass = _passwordCon.text;
-
+              
+              //create user on firebase
               try {
                 UserCredential userCredential =
                     await _auth.createUserWithEmailAndPassword(
@@ -89,9 +97,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 );
 
                 //print(userCredential);
-
+                //Go to home screen if successful
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => HomeScreen()));
+
               } on FirebaseAuthException catch (e) {
                 //print(e.toString());
                 error = e.toString();
@@ -99,6 +108,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
             },
             child: const Text('Sign Up'),
           ),
+          
+          //Toggle button
           TextButton(
             child: const Text("Already Have an Account? Sign In Here"),
             onPressed: () {
@@ -106,6 +117,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   MaterialPageRoute(builder: (context) => const AuthScreen()));
             },
           ),
+          
+          //Display error
           if (error != "")
             const Text("Error Signing In", style: TextStyle(color: Colors.red))
         ],

@@ -33,7 +33,7 @@ class _ScriptsScreenState extends State<ScriptsScreen> {
                   padding: EdgeInsets.all(20.0),
                   child: Center(
                     child: Text(
-                      "No scritps",
+                      "No scripts",
                     ),
                   ),
                 );
